@@ -1,0 +1,27 @@
+1.실행 방법
+
+1) 가상환경 생성
+python3 -m venv venv
+source venv/bin/activate
+
+2) 패키지설치
+pip install -r requirements.txt
+
+3) 터미널 추론 테스트
+python3 infer_npz.py --idx 0
+
+4) 대시보드 실행
+streamlit run dashboard_app.py
+
+5) GPIO 알람 포함 실행
+sudo ~/hanium_wafer_ai/venv/bin/streamlit run dashboard_app.py
+
+2. 현재 개발 상태
+
+현재 Jetson Orin Nano 단독 환경에서 CNN 모델 로딩, 웨이퍼 불량 패턴 추론, Streamlit 대시보드 출력, CSV 로그 저장 기능을 검증하였다.
+GPIO 기반 LED·부저 알람 기능은 코드 수준에서 연동 구조를 구현하였으며, 실제 PCB 연결 후 물리적 알람 동작을 최종 검증할 예정이다.
+
+3. 참고 사항
+
+현재 모델은 정상 데이터를 제외한 8가지 불량 패턴 분류 모델이다.
+향후 정상 none 클래스를 포함한 9클래스 분류 모델로 확장하면 정상/불량 판별 및 LED 색상 구분 기능을 추가할 수 있다.
